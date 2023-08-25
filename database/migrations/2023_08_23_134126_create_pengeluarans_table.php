@@ -17,7 +17,9 @@ return new class extends Migration
             $table->float('jumlah', 17, 2);
             $table->string('pathfile');
             $table->string('namafile');
+            $table->bigInteger('piciduser');
             $table->dateTime('tanggalbon', 0);
+            $table->boolean('isclosing')->default(false);
             $table->timestamps();
         });
     }
