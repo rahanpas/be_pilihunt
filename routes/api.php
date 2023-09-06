@@ -27,4 +27,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/pengeluaran', [PengeluaranController::class, 'simpanpengeluaran']);
+
+
+    Route::get('test', function () {
+        event(new App\Events\Test());
+        return "Event has been sent!";
+    });
 });
+
+Broadcast::routes(['middleware' => ['auth:sanctum']]);
